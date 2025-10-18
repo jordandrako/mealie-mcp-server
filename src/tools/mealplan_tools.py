@@ -115,11 +115,11 @@ def register_mealplan_tools(mcp: FastMCP, mealie: MealieFetcher) -> None:
             return format_error_response(error_msg)
 
     @mcp.tool()
-    def get_todays_mealplan() -> List[Dict[str, Any]]:
+    def get_todays_mealplan() -> List[Dict[str, Any]] | Dict[str, Any]:
         """Get the mealplan entries for today.
 
         Returns:
-            List[Dict[str, Any]]: List of today's mealplan entries
+            List[Dict[str, Any]] | Dict[str, Any]: List of today's mealplan entries or an error payload.
         """
         try:
             logger.info({"message": "Fetching today's mealplan"})
